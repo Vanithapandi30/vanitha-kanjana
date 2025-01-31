@@ -1,0 +1,53 @@
+def initialize_grid(size):
+    return [[0 for _ in range(size)] for _ in range(size)]
+
+def print_grid(grid):
+    for row in grid:
+        print(" ".join(map(str, row)))
+
+def draw_circle(grid, x, y, radius):
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            # Check if the point (i, j) is inside the circle
+            if (i - x) ** 2 + (j - y) ** 2 <= radius ** 2:
+                grid[i][j] = 1
+
+def main():
+    grid_size = 10
+    grid = initialize_grid(grid_size)
+
+  
+    x = int(input("Enter the row (0-9) for the center of the circle: "))
+    y = int(input("Enter the column (0-9) for the center of the circle: "))
+    radius = int(input("Enter the radius of the circle: "))
+
+   
+    draw_circle(grid, x, y, radius)
+
+   
+    print("\nGrid with Circle:")
+    print_grid(grid)
+
+if __name__ == "__main__":
+    main()
+
+
+OUTPUT
+
+Enter the row (0-9) for the center of the circle: 5
+Enter the column (0-9) for the center of the circle: 5
+Enter the radius of the circle: 3
+
+Grid with Circle:
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 1 0 0 0 0
+0 0 0 1 1 1 1 1 0 0
+0 0 0 1 1 1 1 1 0 0
+0 0 1 1 1 1 1 1 1 0
+0 0 0 1 1 1 1 1 0 0
+0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0
+
+
